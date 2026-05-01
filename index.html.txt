@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pro Gaming Hub</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+    }
+    header {
+      background: #1e293b;
+      padding: 15px;
+      text-align: center;
+      font-size: 26px;
+      font-weight: bold;
+    }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background: #111827;
+    }
+    input {
+      padding: 8px;
+      border-radius: 8px;
+      border: none;
+      width: 200px;
+    }
+    .btn {
+      background: #22c55e;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      color: black;
+      font-weight: bold;
+    }
+    .games {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .card {
+      background: #1e293b;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+    .card:hover {
+      transform: scale(1.05);
+    }
+    iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
+    }
+    .title {
+      padding: 10px;
+      text-align: center;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<header>🔥 Pro Gaming Hub</header>
+
+<div class="topbar">
+  <input type="text" id="search" placeholder="Search game..." onkeyup="searchGame()">
+  <button class="btn" onclick="alert('Login system coming soon!')">Login</button>
+</div>
+
+<div class="games" id="gameList">
+
+  <div class="card">
+    <iframe src="https://www.crazygames.com/embed/stack-ball"></iframe>
+    <div class="title">Stack Ball</div>
+  </div>
+
+  <div class="card">
+    <iframe src="https://www.crazygames.com/embed/slope"></iframe>
+    <div class="title">Slope</div>
+  </div>
+
+  <div class="card">
+    <iframe src="https://www.crazygames.com/embed/moto-x3m"></iframe>
+    <div class="title">Moto X3M</div>
+  </div>
+
+  <div class="card">
+    <iframe src="https://www.crazygames.com/embed/2048"></iframe>
+    <div class="title">2048</div>
+  </div>
+
+  <div class="card">
+    <iframe src="https://www.crazygames.com/embed/temple-run-2"></iframe>
+    <div class="title">Temple Run 2</div>
+  </div>
+
+  <div class="card">
+    <iframe src="https://www.crazygames.com/embed/subway-surfers"></iframe>
+    <div class="title">Subway Surfers</div>
+  </div>
+
+</div>
+
+<script>
+function searchGame() {
+  let input = document.getElementById("search").value.toLowerCase();
+  let cards = document.querySelectorAll(".card");
+
+  cards.forEach(card => {
+    let title = card.innerText.toLowerCase();
+    if (title.includes(input)) {
+      card.classList.remove("hidden");
+    } else {
+      card.classList.add("hidden");
+    }
+  });
+}
+</script>
+
+</body>
+</html>
